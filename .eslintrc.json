@@ -1,0 +1,10 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb-base",
+  "rules": {
+    "no-console": ["error", { "allow": ["log", "warn", "error"] }]
+  },
+  "env": {
+    "browser": true
+  }
+}
