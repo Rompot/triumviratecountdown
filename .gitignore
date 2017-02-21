@@ -14,5 +14,5 @@
 temp
 Thumbs.db
 
-dist
+_server.js
 node_modules

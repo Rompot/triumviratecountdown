@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 console.log(path.join(__dirname, 'public'));
 
 app.get('/', (req, res) => {
-  res.send('Days until Liver Destruction...');
+  res.render('index');
 });
 
 app.listen(app.get('port'), () => {
