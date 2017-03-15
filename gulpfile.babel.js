@@ -7,6 +7,9 @@ import gulpSequence from 'gulp-sequence';
 import nodemon from 'gulp-nodemon';
 import rename from 'gulp-rename';
 import source from 'vinyl-source-stream';
+import plumber from 'gulp-plumber';
+import jade from 'gulp-jade';
+import angularTemplatecache from 'gulp-angular-templatecache';
 
 // Hey Tom, fuck yourself
 
@@ -29,6 +32,23 @@ gulp.task('build:app', () =>
     .pipe(gulp.dest('./public/javascript')),
 );
 
+gulp.task('build:jade', () =>
+  gulp.src('./src/components/**/*.jade')
+    .pipe(plumber())
+    .pipe(jade())
+    .pipe(rename({
+      dirname: '',
+    }))
+    .pipe(angularTemplatecache({
+      module: 'templates',
+      standalone: 'true',
+      root: 'views/',
+      moduleSystem: 'ES6',
+    }))
+    .pipe(rename('templates.module.js'))
+    .pipe(gulp.dest('./src/templates')),
+);
+
 gulp.task('nodemon', () =>
   nodemon({
     script: '_server.js',
@@ -43,6 +63,9 @@ gulp.task('nodemon', () =>
 
 gulp.task('default', gulpSequence(
   'build:server',
+  'build:jade',
   'build:app',
   'nodemon',
 ));
+
+//Justin sucks the FATTEST penii
