@@ -11,8 +11,6 @@ import plumber from 'gulp-plumber';
 import jade from 'gulp-jade';
 import angularTemplatecache from 'gulp-angular-templatecache';
 
-// Hey Tom, fuck yourself
-
 gulp.task('build:server', () =>
   gulp.src('./server.js')
     .pipe(babel())
@@ -67,5 +65,3 @@ gulp.task('default', gulpSequence(
   'build:app',
   'nodemon',
 ));
-
-//Justin sucks the FATTEST penii
