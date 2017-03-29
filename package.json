@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node _server.js",
-    "heroku-postbuild": "gulp build:server"
+    "heroku-postbuild": "gulp build"
   },
   "repository": {
     "type": "git",

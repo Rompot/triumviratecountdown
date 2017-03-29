@@ -47,6 +47,12 @@ gulp.task('build:jade', () =>
     .pipe(gulp.dest('./src/templates')),
 );
 
+gulp.task('build', gulpSequence(
+  'build:server',
+  'build:jade',
+  'build:app',
+));
+
 gulp.task('nodemon', () =>
   nodemon({
     script: '_server.js',
@@ -60,8 +66,6 @@ gulp.task('nodemon', () =>
 );
 
 gulp.task('default', gulpSequence(
-  'build:server',
-  'build:jade',
-  'build:app',
+  'build',
   'nodemon',
 ));
