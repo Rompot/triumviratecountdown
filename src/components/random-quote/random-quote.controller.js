@@ -7,7 +7,7 @@ export default class {
       'Get to the chopper!',
       'You do that one more time I\'mma bleed you real quiet.',
       'You are next',
-      'Brick don\'t hit back',
+      'Brick not hit back',
     ];
 
     this.randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
